@@ -1,0 +1,10 @@
+<mat-form-field appearance="fill">
+  <mat-label>Select Name</mat-label>
+  <mat-select>
+    <mat-option *ngFor="let user of users" [value]="user.name">
+      <div>
+        {{ user.name }}
+      </div>
+    </mat-option>
+  </mat-select>
+</mat-form-field>

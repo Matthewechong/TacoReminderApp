@@ -1,0 +1,8 @@
+{
+    "/usersData":{
+        "target":"http://10.0.1.2:5000/",
+        "secure": false,
+        "logLevel" : "debug"
+
+    }
+}
