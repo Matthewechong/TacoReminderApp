@@ -1,10 +1,42 @@
-<mat-form-field appearance="fill">
-  <mat-label>Select Name</mat-label>
-  <mat-select>
-    <mat-option *ngFor="let user of users" [value]="user.name">
-      <div>
-        {{ user.name }}
-      </div>
-    </mat-option>
-  </mat-select>
-</mat-form-field>
+<mat-card class="card-class" color="primary">
+  <div>
+    <mat-form-field class="fields" appearance="fill">
+      <mat-label>Select Name</mat-label>
+      <mat-select [(ngModel)]="currentUser">
+        <mat-option *ngFor="let user of users" [value]="user.name">
+          <div>
+            {{ user.name }}
+          </div>
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field class="fields" appearance="fill">
+      <mat-label>Email</mat-label>
+      <textarea matInput [disabled]="true" *ngIf="textAreaEmpty()"></textarea>
+      <textarea matInput [disabled]="true" *ngIf="!textAreaEmpty()">{{
+        getEmail()
+      }}</textarea>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field class="fields" appearance="fill">
+      <mat-label>Taco Points</mat-label>
+      <textarea matInput [disabled]="true" *ngIf="textAreaEmpty()"></textarea>
+      <textarea matInput [disabled]="true" *ngIf="!textAreaEmpty()">{{
+        getTacoCount()
+      }}</textarea>
+    </mat-form-field>
+  </div>
+  <div>
+    <button
+      class="fields"
+      mat-raised-button
+      (click)="clickSend()"
+      color="primary"
+    >
+      Send
+    </button>
+  </div>
+</mat-card>

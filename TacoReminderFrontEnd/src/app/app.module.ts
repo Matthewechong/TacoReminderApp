@@ -7,13 +7,17 @@ import { AppComponent } from './app.component';
 import { NameSelectComponent } from './name-select/name-select.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-import { DataService } from './config/data.service';
-import { User } from './objects/user';
-import { environment } from 'src/environments/environment';
+import { AddUserComponent } from './add-user/add-user.component';
+import { MatInputModule } from '@angular/material';
+import { FormsModule } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
+import {MatDialogModule} from '@angular/material';
 @NgModule({
   declarations: [
     AppComponent,
     NameSelectComponent,
+    AddUserComponent,
   ],
   imports: [
     BrowserModule,
@@ -22,6 +26,11 @@ import { environment } from 'src/environments/environment';
     MatSelectModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    MatInputModule,
+    FormsModule,
+    MatCardModule,
+    MatButtonModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

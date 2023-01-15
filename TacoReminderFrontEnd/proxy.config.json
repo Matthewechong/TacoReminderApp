@@ -4,5 +4,19 @@
         "secure": false,
         "logLevel" : "debug"
 
+    },
+
+    "/sendEmailTacoCount":{
+        "target":"http://10.0.1.2:5000/",
+        "secure": false,
+        "logLevel" : "debug"
+
+    },
+
+    "/newUser":{
+        "target":"http://10.0.1.2:5000/",
+        "secure": false,
+        "logLevel" : "debug"
+
     }
 }

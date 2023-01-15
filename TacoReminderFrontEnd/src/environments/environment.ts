@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  dataUrl : "/usersData"
+  dataUrl : "/usersData",
+  sendEmailTacoCount : "/sendEmailTacoCount",
+  newUser: "/newUser"
 };
 
 /*

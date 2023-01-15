@@ -1,0 +1,13 @@
+<mat-card class="card-class" color="primary">
+  <mat-form-field class="fields" appearance="fill">
+    <mat-label>Name</mat-label>
+    <input [(ngModel)]="name" matInput />
+  </mat-form-field>
+  <mat-form-field class="fields" appearance="fill">
+    <mat-label>Email</mat-label>
+    <input [(ngModel)]="email" matInput />
+  </mat-form-field>
+  <button class="fields" mat-raised-button (click)="clickAdd();openDialog('0','0')" color="primary">
+    Add
+  </button>
+</mat-card>

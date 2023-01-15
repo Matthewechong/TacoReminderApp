@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/purple-green.css';
+.card-class{
+    margin: auto;
+    margin-top: 100px;
+    max-width: 300px;
+    justify-content: center;
+    align-items: center;
+}
+
+.fields {
+    width:300px;
+}

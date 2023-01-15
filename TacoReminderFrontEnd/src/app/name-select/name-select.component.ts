@@ -1,15 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit} from '@angular/core';
-import { Observable } from 'rxjs';
 import { DataService } from '../config/data.service';
 import { User } from '../objects/user';
+import { MatButtonModule } from '@angular/material/button';
 import { environment } from 'src/environments/environment';
-interface Food {
-  value: string;
-  viewValue: string;
-}
-
-users : Observable<User[]>
 
 @Component({
   selector: 'app-name-select',
@@ -19,26 +13,51 @@ users : Observable<User[]>
 export class NameSelectComponent implements OnInit{
 
   users : User[];
-
+  dataService : DataService;
+  currentUser = '';
+  currentEmail = ""
   constructor(private http : HttpClient){
+
   }
   ngOnInit(): void {
-
-    this.http.get<User[]>(environment.dataUrl).subscribe((res) => {
+    this.dataService = new DataService(this.http);
+    this.dataService.getData().subscribe((res) => {
       this.users = res
     });
     
   }
 
-  // getUsers(){
-  //   this.users = this.http.get<User[]>(environment.dataUrl)
-  // }
-  foods: Food[] = [
-    {value: 'steak-0', viewValue: 'Steak'},
-    {value: 'pizza-1', viewValue: 'Pizza'},
-    {value: 'tacos-2', viewValue: 'Tacos'},
-  ];
+  textAreaEmpty(){
+    if (this.currentUser == '') {
+      return true
+    }
+    return false
+  }
 
-  
+  getUser(){
+    for(let i = 0; i < this.users.length;i++){
+      let current = this.users[i];
+      if(current.name == this.currentUser){
+        
+        return current
+      }
+    }
+    return null
+  }
+
+  getEmail(){
+    return this.getUser().email;
+  }
+
+  getTacoCount(){
+    return this.getUser().taco_count;
+  }
+
+  clickSend(){
+    console.log(JSON.stringify(this.getUser()))
+    this.dataService.putData(JSON.stringify(this.getUser()),environment.sendEmailTacoCount)
+  }
+
+
 
 }
