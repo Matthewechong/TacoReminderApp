@@ -4,6 +4,7 @@ import { DataService } from '../config/data.service';
 import { User } from '../objects/user';
 import { MatButtonModule } from '@angular/material/button';
 import { environment } from 'src/environments/environment';
+import { UtilityService } from '../utility.service';
 
 @Component({
   selector: 'app-name-select',
@@ -16,7 +17,7 @@ export class NameSelectComponent implements OnInit{
   dataService : DataService;
   currentUser = '';
   currentEmail = ""
-  constructor(private http : HttpClient){
+  constructor(private http : HttpClient, private util:UtilityService){
 
   }
   ngOnInit(): void {
@@ -25,6 +26,9 @@ export class NameSelectComponent implements OnInit{
       this.users = res
     });
     
+  }
+  click(route){
+    this.util.clickToRoute(route);
   }
 
   textAreaEmpty(){

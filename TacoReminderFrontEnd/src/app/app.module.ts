@@ -12,12 +12,17 @@ import { MatInputModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
-import {MatDialogModule} from '@angular/material';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { HomeComponent } from './home/home.component';
+import { UtilityService } from './utility.service';
+import { ConfirmComponent } from './confirm/confirm.component';
 @NgModule({
   declarations: [
     AppComponent,
     NameSelectComponent,
     AddUserComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,9 +35,11 @@ import {MatDialogModule} from '@angular/material';
     FormsModule,
     MatCardModule,
     MatButtonModule,
+    MatGridListModule,
     MatDialogModule
   ],
-  providers: [],
+  entryComponents:[ConfirmComponent],
+  providers: [UtilityService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

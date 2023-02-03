@@ -1,0 +1,27 @@
+<head> </head>
+<body>
+  <mat-grid-list [cols]="2" rowHeight="2:1">
+    <mat-grid-tile>
+      <button
+        class="home"
+        (click)="click('add')"
+        mat-raised-button
+        color="primary"
+      >
+        Add Users
+      </button>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <button
+        class="home"
+        (click)="click('send')"
+        mat-raised-button
+        color="primary"
+      >
+        Send
+      </button>
+    </mat-grid-tile>
+  </mat-grid-list>
+</body>
+<router-outlet></router-outlet>

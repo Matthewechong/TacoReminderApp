@@ -3,7 +3,9 @@ import { Component, OnInit} from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { DataService } from '../config/data.service';
 import { User } from '../objects/user';
-import {MatDialog, MatDialogRef} from '@angular/material/';
+import { UtilityService } from '../utility.service';
+import { ConfirmComponent } from '../confirm/confirm.component';
+import { MatDialog } from '@angular/material';
 @Component({
   selector: 'app-add-user',
   templateUrl: './add-user.component.html',
@@ -14,15 +16,20 @@ export class AddUserComponent implements OnInit{
   email: '';
   name : '';
   dataService : DataService;
-  constructor(private http : HttpClient, public dialog: MatDialog) { }
+  constructor(private http : HttpClient, public dialog: MatDialog, private util :UtilityService) { }
 
-  openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
-    this.dialog.open(DialogAnimationsExampleDialog, {width: '500px'});
+  openDialog(){
+    console.log("working")
+    this.dialog.open(ConfirmComponent);
   }
 
 
   ngOnInit(): void {
     this.dataService = new DataService(this.http);
+  }
+
+  click(route){
+    this.util.clickToRoute(route);
   }
 
   clickAdd()
@@ -40,10 +47,10 @@ export class AddUserComponent implements OnInit{
 
 }
 
-@Component({
-  selector: 'dialog-animations-example-dialog',
-  templateUrl: 'dialog-animations-example-dialog.html',
-})
-export class DialogAnimationsExampleDialog {
-  constructor(public dialogRef: MatDialogRef<DialogAnimationsExampleDialog>) {}
-}
+// @Component({
+//   selector: 'dialog-animations-example-dialog',
+//   templateUrl: 'dialog-animations-example-dialog.html',
+// })
+// export class DialogAnimationsExampleDialog {
+//   constructor(public dialogRef: MatDialogRef<DialogAnimationsExampleDialog>) {}
+// }

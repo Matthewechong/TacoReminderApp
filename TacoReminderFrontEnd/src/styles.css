@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@import '@angular/material/prebuilt-themes/purple-green.css';
+@import '~@angular/material/prebuilt-themes/purple-green.css';
 .card-class{
     margin: auto;
     margin-top: 100px;
@@ -10,4 +10,8 @@
 
 .fields {
     width:300px;
+}
+.home{
+    height:200px;
+    width: 200px;
 }
