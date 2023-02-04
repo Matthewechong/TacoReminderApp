@@ -17,6 +17,8 @@ export class NameSelectComponent implements OnInit{
   dataService : DataService;
   currentUser = '';
   currentEmail = ""
+  currentCount: any;
+  currentMemo: any;
   constructor(private http : HttpClient, private util:UtilityService){
 
   }
@@ -58,6 +60,8 @@ export class NameSelectComponent implements OnInit{
   }
 
   clickSend(){
+    this.getUser().taco_count = this.currentCount;
+    this.getUser().memo = this.currentMemo;
     console.log(JSON.stringify(this.getUser()))
     this.dataService.putData(JSON.stringify(this.getUser()),environment.sendEmailTacoCount)
   }

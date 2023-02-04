@@ -1,9 +1,9 @@
-@import "~@angular/material/theming";
-@include mat-core();
+// @import "@angular/material/_theming";
+// @include mat-core();
 
-$my-primary:mat-palette($mat-indigo);
-$my-accent:mat-palette($mat-light-green, 800);
+// $my-primary:mat-palette($mat-indigo);
+// $my-accent:mat-palette($mat-light-green, 800);
 
-$my-theme:mat-light-theme($my-primary, $my-accent);
+// $my-theme:mat-light-theme($my-primary, $my-accent);
 
-@include angular-material-theme($my-theme);
+// @include angular-material-theme($my-theme);

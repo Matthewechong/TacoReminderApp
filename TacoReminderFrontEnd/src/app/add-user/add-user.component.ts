@@ -5,7 +5,7 @@ import { DataService } from '../config/data.service';
 import { User } from '../objects/user';
 import { UtilityService } from '../utility.service';
 import { ConfirmComponent } from '../confirm/confirm.component';
-import { MatDialog } from '@angular/material';
+
 @Component({
   selector: 'app-add-user',
   templateUrl: './add-user.component.html',
@@ -16,11 +16,11 @@ export class AddUserComponent implements OnInit{
   email: '';
   name : '';
   dataService : DataService;
-  constructor(private http : HttpClient, public dialog: MatDialog, private util :UtilityService) { }
+  constructor(private http : HttpClient, private util :UtilityService) { }
 
   openDialog(){
     console.log("working")
-    this.dialog.open(ConfirmComponent);
+    // this.dialog.open(ConfirmComponent);
   }
 
 
@@ -39,6 +39,7 @@ export class AddUserComponent implements OnInit{
         "name" : this.name,
         "email" : this.email,
         "taco_count" : 0,
+        "memo" : " "
       }
       this.dataService.putData(JSON.stringify(this.user),environment.newUser)
     }

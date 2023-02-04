@@ -1,15 +1,10 @@
-<button
-    class="back"
-    (click)="click('home')"
-    mat-raised-button
-    color="primary"
-  >
-    back
-  </button>
+<button class="back" (click)="click('home')" mat-raised-button color="primary">
+  back
+</button>
 <mat-card class="card-class" color="primary">
   <div>
     <mat-form-field class="fields" appearance="fill">
-      <mat-label>Select Name</mat-label>
+      <mat-label>Select Name:</mat-label>
       <mat-select [(ngModel)]="currentUser">
         <mat-option *ngFor="let user of users" [value]="user.name">
           <div>
@@ -21,7 +16,8 @@
   </div>
   <div>
     <mat-form-field class="fields" appearance="fill">
-      <mat-label>Email</mat-label>
+      <mat-label>Email:</mat-label>
+      <p></p>
       <textarea matInput [disabled]="true" *ngIf="textAreaEmpty()"></textarea>
       <textarea matInput [disabled]="true" *ngIf="!textAreaEmpty()">{{
         getEmail()
@@ -30,13 +26,25 @@
   </div>
   <div>
     <mat-form-field class="fields" appearance="fill">
-      <mat-label>Taco Points</mat-label>
+      <mat-label>Taco Points:</mat-label>
+      <p></p>
       <textarea matInput [disabled]="true" *ngIf="textAreaEmpty()"></textarea>
-      <textarea matInput [disabled]="true" *ngIf="!textAreaEmpty()">{{
+      <textarea [(ngModel)]="currentCount" matInput [disabled]="false" *ngIf="!textAreaEmpty()">{{
         getTacoCount()
       }}</textarea>
     </mat-form-field>
   </div>
+  <div>
+    <mat-form-field class="fields" appearance="fill">
+      <mat-label>Memo:</mat-label>
+      <p></p>
+      <textarea matInput [disabled]="true" *ngIf="textAreaEmpty()"></textarea>
+      <textarea [(ngModel)]="currentMemo" matInput [disabled]="false" *ngIf="!textAreaEmpty()">{{
+        getTacoCount()
+      }}</textarea>
+    </mat-form-field>
+  </div>
+
   <div>
     <button
       class="fields"

@@ -23,12 +23,19 @@ def usersData():
 def sendEmailTacoCount():
     if request.method == "PUT":
         json_data = utils.decodeJson(request)
+        # Set attributes
         user = json_data["name"]
         count = json_data["taco_count"]
+        message = json_data["memo"]
+
         data = utils.findPerson(user)
         data["taco_count"] = count
+        data["memo"] = message
+
+        # Update the JSON Data
         utils.updatePerson(user, data)
-        sendEmail.sendTacoCount(user)
+        # Send Email
+        sendEmail.sendTacoCount(data, message)
         return render_template('index.html')
     return render_template('index.html')
 
