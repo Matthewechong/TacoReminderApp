@@ -16,12 +16,14 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import { HomeComponent } from './home/home.component';
 import { UtilityService } from './utility.service';
 import { ConfirmComponent } from './confirm/confirm.component';
+import { MatDialogModule } from '@angular/material/dialog';
 @NgModule({
   declarations: [
     AppComponent,
     NameSelectComponent,
     AddUserComponent,
     HomeComponent,
+    ConfirmComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,6 +37,7 @@ import { ConfirmComponent } from './confirm/confirm.component';
     MatCardModule,
     MatButtonModule,
     MatGridListModule,
+    MatDialogModule
   ],
   entryComponents:[ConfirmComponent],
   providers: [UtilityService],

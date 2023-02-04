@@ -1,10 +1,11 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, Inject} from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { DataService } from '../config/data.service';
 import { User } from '../objects/user';
 import { UtilityService } from '../utility.service';
 import { ConfirmComponent } from '../confirm/confirm.component';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-add-user',
@@ -16,11 +17,11 @@ export class AddUserComponent implements OnInit{
   email: '';
   name : '';
   dataService : DataService;
-  constructor(private http : HttpClient, private util :UtilityService) { }
+  constructor(private http : HttpClient, private util :UtilityService, public dialog : MatDialog) { }
 
   openDialog(){
     console.log("working")
-    // this.dialog.open(ConfirmComponent);
+    this.dialog.open(ConfirmComponent);
   }
 
 
@@ -47,11 +48,3 @@ export class AddUserComponent implements OnInit{
   }
 
 }
-
-// @Component({
-//   selector: 'dialog-animations-example-dialog',
-//   templateUrl: 'dialog-animations-example-dialog.html',
-// })
-// export class DialogAnimationsExampleDialog {
-//   constructor(public dialogRef: MatDialogRef<DialogAnimationsExampleDialog>) {}
-// }
